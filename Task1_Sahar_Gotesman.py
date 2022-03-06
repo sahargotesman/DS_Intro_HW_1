@@ -11,14 +11,14 @@ def my_func(x1,x2,x3):
             return "Not a number - denominator equels zero"
     if (type(x1) != float):
             return "Error: parameters should be float"
-    elif (type(x2) != float):
+    if (type(x2) != float):
             return "Error: parameters should be float"
-    elif (type(x3) != float):
+    if (type(x3) != float):
             return "Error: parameters should be float"
     
     return((x1+x2+x3)*(x2+x3)*x3)/denominator
    
-#print(my_func(0,1,0))# usage example
+#print(my_func(1.2,0.1,0.2))# usage example
 
 #Q2
 from datetime import timedelta
