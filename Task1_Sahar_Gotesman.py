@@ -4,6 +4,7 @@
 
 #Q1
 
+
 def my_func(x1,x2,x3):
     denominator= x1 + x2 + x3 #sum the numbers to make sure they are equal to zero
     if denominator == 0:
@@ -17,21 +18,19 @@ def my_func(x1,x2,x3):
     
     return((x1+x2+x3)*(x2+x3)*x3)/denominator
    
-print(my_func(0.1,0.1,0.1))
+#print(my_func(0,1,0))# usage example
 
 #Q2
-
+from datetime import timedelta
 import math  #Method modf() returns the fractional and integer parts of x in a two-item tuple
 def  convert(hours, minutes):
-    if type(hours)==float or type(hours)==int and type(minutes)==float or type(hours)==int and hours > 0  and minutes > 0 :
+    if type(hours)==float or type(hours)==int and type(minutes)==float or type(hours)==int and hours >= 0  and minutes >= 0 :
         split_h= math.modf(hours) #Split the number for two float numbers (first= minutes, second= hours)
-        num_minutes= split_h[0]
+        num_minutes= split_h[0]*60
         num_hours= split_h[1]
-        sec_minutes= num_minutes*3600 #Turning minutes into seconds (multipying by 60*60 because we get a Decimal number)
-        sec_hours= num_hours*3600 #Turning hours into seconds
-        sec_minutes1=minutes*60 #Turning minutes into seconds
-        sum_seconds= sec_minutes+sec_hours+sec_minutes1
+        td = timedelta(hours = num_hours, minutes = num_minutes+minutes)
+        sum_seconds= td.seconds
         return sum_seconds
     else:
         print("Input error!")
-print(convert(4.5896, 44.2))
+#print(convert(1,3)) #usage example
